@@ -1,52 +1,64 @@
-# Leo Watterson 日系極簡雜誌風格個人網站計畫書
+# DIC-1 — Personal Page: Leo Watterson Showcase & Timepiece
 
-本專案為 **Leo Watterson** 建構一個兼具日系極簡雜誌（Editorial Magazine）美學與實用功能的現代個人首頁與 Liquid Glass 動態計時器。
-
----
-
-## 視覺與架構設計規範
-
-### 1. 核心美學與排版
-- **日系雜誌感**：米白紙質色系（`#F7F5F0`）與深墨黑（`#141414`）切換，搭配細微紙質紋理（Paper Texture Overlay）。
-- **字型層次**：以優雅古典的襯線體 *Cormorant Garamond* / *Noto Serif TC* 呈現名字與標題，搭配無襯線字體 *Montserrat* 顯示時間數字與標籤。
-- **邊框細節**：典雅的雜誌外框（Editorial Frame）與四角版次元件（Vol. I, Est. 2026）。
+本專案為 **DIC-1 作業** 之個人專屬網站，結合 **日系極簡雜誌風格（Editorial Design）** 與 **流態玻璃擬態（Liquid Glassmorphism）** 動態即時時計。
 
 ---
 
-## 模組與功能規劃
+## 🔗 專案提交資訊 (Submission URLs)
 
-### 1. 核心識別模組（Brand / Identity）
-- **姓名展示**：突出展示 `Leo Watterson`，搭配副標題與客製化標籤（Designer • Creator • Thinker）。
-- **時段動態問候語**：依據瀏覽者的當前時段（晨曦、午後、黃昏、深夜）呈現日系哲理小語。
-
-### 2. Liquid Glass（流態玻璃擬態）即時動態計時模組（Timepiece Engine）
-- **高精確度時鐘**：時、分、秒動態更新，秒數微縮膠囊排版與冒號呼吸節奏。
-- **背部流體光暈**：多層次動態漂浮渲染色斑（Organic Fluid Blobs），隨時間自然流動變換。
-- **玻璃折射與光澤**：高透光磨砂質感（`backdrop-filter: blur(24px)`）、細緻高光邊框與流動光束掃描（Sheen Glare）。
-- **互動 3D 視差傾斜**：滑鼠移入時鐘區域時，會產生微小的 3D 視差傾斜與光學折射互動反應。
-- **日曆與時區資料卡**：自動解析當前年月日、星期及使用者所在時區（Intl API）。
-- **深淺模式切換**：提供 Paper Mode（紙本米白）與 Dark Mode（深邃墨黑）切換。
+- **① GitHub Repository**：[https://github.com/BlueET1/260916](https://github.com/BlueET1/260916)
+- **② Live Website (GitHub Pages)**：[https://blueet1.github.io/260916/](https://blueet1.github.io/260916/)
 
 ---
 
-## 檔案結構
+## 📌 作業要求達成對照表 (Requirements Checklist)
 
-- `index.html`：日系極簡雜誌風格網頁核心檔案（包含所有字型、樣式與 Liquid Glass 動態時鐘邏輯）
-- `main.py`：Python 本地伺服器一鍵啟動腳本（自動開啟瀏覽器）
-- `.gitignore`：版本控制排除設定
-- `README.md`：專案說明與開發計畫書
-
----
-
-## 如何開啟與預覽
-
-1. **直接開啟**：以任何現代瀏覽器直接打開 `index.html`。
-2. **Python 伺服器**：在專案目錄下執行 `python main.py`，將自動啟動本地開發伺服器（`http://localhost:8000/index.html`）並開啟瀏覽器。
+| 要求項目 | 內容說明 | 狀態 |
+| :--- | :--- | :---: |
+| **👤 1. Profile** | 包含姓名（Leo Watterson）、個人 Avatar 照片、科系專長（資訊工程系 / 物聯網）與自我介紹，支援動態編輯並保存至 `localStorage` | ✅ 完成 |
+| **🛠 2. Skills** | 展示 6 項核心技術（Python, IoT/ESP32, Web Dev, Machine Learning, Git/Cloud, UI/UX） | ✅ 完成 |
+| **🚀 3. Projects** | 收錄 2 個專案作品（Liquid Timepiece, Smart IoT Telemetry Node），含技術標籤與 GitHub 連結 | ✅ 完成 |
+| **🕐 4. Live Clock** | JavaScript 動態即時時鐘，精確更新 HH:MM:SS，支援 12H/24H 切換、複製時間戳、時區偵測 | ✅ 完成 |
+| **🎨 5. Personal Design** | 日系極簡紙質雜誌排版、自訂襯線字體、3D 視差傾斜反應、多層流體光斑與雙主題模式 | ✅ 完成 |
 
 ---
 
-## 未來可擴充功能規劃
+## ⭐ Bonus 挑戰加分項目 (Bonus Features)
 
-- **個人社交連結欄**（GitHub, X, LinkedIn, Email 等）
-- **類比指針時鐘 / 數位時鐘雙模式切換**
-- **專案 / 簡介卡片展開區塊**（Portfolio Summary）
+- 🌅 **動態時段語錄**：依早晨、午後、黃昏、深夜自動呈現哲理問候
+- 🔄 **12H / 24H 雙模式切換**：可一鍵切換時間制，並儲存使用者偏好
+- 🌍 **自動偵測時區**：使用 `Intl.DateTimeFormat` 自動顯示瀏覽器所在地時區
+- 📋 **一鍵複製時間戳（Copy Timestamp）**：點擊即可複製當前精確時間
+- ✏️ **可自訂個人檔案（Editable Profile）**：隨時點擊修改姓名、科系與自傳
+- 💾 **localStorage 本地持久化**：主題設定、時間制式與個人資訊於重新整理後依然保留
+- ✨ **Liquid Glass 3D 視差傾斜**：滑鼠游標移入時鐘產生即時物理光學折射反應
+- 🎨 **雙色主題切換**：Paper Mode（極簡米白）與 Dark Mode（深墨黑）無縫過渡
+
+---
+
+## 📁 專案檔案架構
+
+```text
+260916/
+├── assets/
+│   └── avatar.jpg          # 個人形象頭像照
+├── index.html              # 網站主頁面結構
+├── style.css               # 樣式表、設計規範與 Liquid Glass 動畫
+├── app.js                  # 時鐘引擎、主題切換與資料互動邏輯
+├── main.py                 # Python 本地開發伺服器
+├── requirements.txt        # DIC-1 作業規格書
+├── README.md               # 專案報告與提交說明
+└── .gitignore              # Git 版本控制排除規則
+```
+
+---
+
+## 🚀 本地啟動與測試 (How to Run Locally)
+
+1. **方式一（Python 伺服器）**：
+   在專案目錄下執行以下指令，系統會自動在預設瀏覽器開啟頁面：
+   ```bash
+   python main.py
+   ```
+2. **方式二（直接開啟）**：
+   直接使用任一現代瀏覽器開啟 `index.html` 即可完整體驗。

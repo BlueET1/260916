@@ -1,0 +1,245 @@
+DIC-1 — Personal Page
+🎯 作業目標
+使用 Antigravity + GitHub + GitHub Pages，建立並發布自己的 Personal Page 個人網站。
+
+這次作業的重點不是把老師的網站完全複製，而是學會完整的網站開發流程：
+
+Idea → AI Build → Test → GitHub → Publish
+
+完成後，你會擁有一個真正可以透過 Internet 開啟的個人網站。
+
+🌐 老師範例
+基礎參考
+https://huanchen1107.github.io/0914_PersonalPage/
+
+DIC-1 進階示範
+https://huanchen1107.github.io/0916/
+
+GitHub Repository：
+
+https://github.com/huanchen1107/0916
+
+可以參考老師的設計與功能，但請做成自己的內容與風格。
+
+📌 Basic Requirements
+你的 Personal Page 至少必須包含以下 5 項內容。
+
+👤 1. Profile
+介紹你自己，例如：
+
+姓名
+
+個人照片或 Avatar
+
+科系 / 專長
+
+簡短自我介紹
+
+🛠 2. Skills
+至少列出 3 項技能。
+
+例如：
+
+Python
+
+C / C++
+
+Machine Learning
+
+AI
+
+IoT
+
+Web Development
+
+Data Analysis
+
+🚀 3. Projects
+至少介紹 1 個自己的作品或專案。
+
+可以包含：
+
+Project Name
+
+Project Description
+
+使用技術
+
+GitHub Link
+
+如果目前沒有作品，也可以放這學期預計完成的 Project。
+
+🕐 4. Live Clock
+使用 JavaScript 製作即時時鐘。
+
+至少顯示：
+
+HH : MM : SS
+
+時間必須會自動更新。
+
+🎨 5. Personal Design
+不要直接複製老師的網頁。
+
+請利用 Antigravity 與 AI 修改成自己的風格，例如：
+
+顏色
+
+字型
+
+Background
+
+Layout
+
+Cards
+
+Animation
+
+個人照片
+
+自己喜歡的 Theme
+
+🤖 How to Do
+Step 1 — Create GitHub Repository
+在 GitHub 建立新的 Repository。
+
+建議名稱：
+
+DIC1_PersonalPage
+
+或：
+
+YOUR_NAME_PersonalPage
+
+Step 2 — Connect Antigravity
+使用 Antigravity IDE 開啟或連接你的 GitHub Repository。
+
+確認 AI Agent 可以讀取並修改專案。
+
+Step 3 — Tell AI What You Want
+不要急著自己從零開始寫所有 HTML / CSS / JavaScript。
+
+先告訴 AI：
+
+Create a modern personal page for me.
+Include my profile, skills, projects and a real-time JavaScript clock.
+Make the design responsive and suitable for GitHub Pages.
+
+接著再逐步告訴 AI 你想修改的地方。
+
+Step 4 — Build & Test
+使用 Antigravity 協助建立：
+
+index.html
+style.css
+app.js
+在瀏覽器測試：
+
+網頁是否正常顯示
+
+Live Clock 是否會動
+
+手機與電腦版面是否正常
+
+Link 是否可以點擊
+
+個人資料是否正確
+
+Step 5 — Push to GitHub
+完成後將程式碼：
+
+Commit → Push → GitHub
+
+確認 Repository 中可以看到你的：
+
+index.html
+style.css
+app.js
+README.md
+Step 6 — Publish with GitHub Pages
+在 GitHub Repository：
+
+Settings → Pages
+
+設定：
+
+Branch: main
+Folder: /root
+等待 GitHub Pages 完成部署。
+
+成功後，你會得到類似：
+
+https://YOUR_NAME.github.io/DIC1_PersonalPage/
+的網址。
+
+⭐ Bonus Challenge
+完成基本要求後，可以參考老師的 0916 專案加入更多功能。
+
+Bonus 功能例如：
+
+🌅 根據時間改變 Good Morning / Afternoon / Evening
+
+🔄 12H / 24H 時間切換
+
+🌍 自動顯示 Time Zone
+
+📋 Copy Timestamp
+
+✏️ 可以修改自己的 Profile
+
+💾 使用 localStorage 儲存設定
+
+✨ Animation
+
+🌌 Particle Background
+
+📱 Responsive Design
+
+🎨 Glassmorphism / Cyberpunk Style
+
+Bonus 不要求全部完成。
+
+選擇你有興趣的功能，讓 AI 協助你實作。
+
+📤 Submission
+請繳交 兩個網址。
+
+① GitHub Repository
+https://github.com/YOUR_NAME/DIC1_PersonalPage
+② Live Website
+https://YOUR_NAME.github.io/DIC1_PersonalPage/
+⚠️ 只有 GitHub Repository 不算完成。
+
+老師必須可以直接開啟你的 Live Website。
+
+✅ 完成檢查
+繳交前請確認：
+
+☐ 有自己的 Profile
+
+☐ 至少 3 項 Skills
+
+☐ 至少 1 個 Project
+
+☐ JavaScript Live Clock 正常運作
+
+☐ 有自己的 Personal Design
+
+☐ 程式已 Push 到 GitHub
+
+☐ GitHub Pages 可以正常開啟
+
+☐ 已準備 Repository URL
+
+☐ 已準備 Live Website URL
+
+🚀 DIC-1 Mission
+這次不是只「交一份程式」。
+
+你的任務是完成第一次完整的：
+
+BUILD → TEST → PUSH → PUBLISH
+
+最後，每個人都應該擁有一個真正可以在 Internet 上看到的：
+
+🌐 My Personal Page
