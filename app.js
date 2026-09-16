@@ -188,8 +188,8 @@
         profileForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const newName = inputName.value.trim() || 'Leo Watterson';
-            const newDept = inputDept.value.trim() || 'Dept. of Computer Science & Engineering';
-            const newBio = inputBio.value.trim() || 'Passionate about IoT and Software Architecture.';
+            const newDept = inputDept.value.trim() || '電機工程學系';
+            const newBio = inputBio.value.trim() || '我是桃園人。目前就讀電機工程學系，專注於 Python、機器學習與人工智慧（AI）技術研究。';
 
             heroNameEl.textContent = newName;
             profileDeptEl.textContent = newDept;

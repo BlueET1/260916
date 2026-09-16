@@ -19,9 +19,9 @@
 
     <!-- Outer Decorative Editorial Frame -->
     <div class="editorial-frame">
-        <div class="frame-corner top-left">Vol. I / No. 26</div>
-        <div class="frame-corner top-right">Portfolio &bull; DIC-1</div>
-        <div class="frame-corner bottom-left">35&deg;41'N 139&deg;41'E</div>
+        <div class="frame-corner top-left">DIC-1 / No. 26</div>
+        <div class="frame-corner top-right">Portfolio &bull; Showcase</div>
+        <div class="frame-corner bottom-left">Taoyuan &bull; Taiwan</div>
         <div class="frame-corner bottom-right">Est. 2026</div>
     </div>
 
@@ -43,14 +43,14 @@
         <!-- 1. Profile Section -->
         <section class="profile-section" id="profile">
             <div class="avatar-wrapper">
-                <img src="assets/avatar.jpg" alt="Leo Watterson" class="avatar-img" id="userAvatar" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80'">
+                <img src="assets/avatar.jpg" alt="Leo Watterson (Gumball)" class="avatar-img" id="userAvatar">
                 <div class="avatar-badge">Online</div>
             </div>
             <div class="profile-info">
-                <div class="profile-dept" id="profileDept">資訊工程系 &bull; 物聯網與軟體架構</div>
+                <div class="profile-dept" id="profileDept">電機工程學系 &bull; Dept. of Electrical Engineering</div>
                 <h1 class="hero-name" id="heroName">Leo <span>Watterson</span></h1>
                 <p class="profile-bio" id="profileBio">
-                    專注於物聯網系統整合、雲端架構與現代化 Web 設計。熱愛將硬體感測數據與極簡數位美學融合，打造兼具穩定實用與沉浸體驗的數位產品。
+                    我是桃園人。目前就讀電機工程學系，專注於 Python、機器學習（Machine Learning）與人工智慧（AI）技術研究，熱愛將智慧演算法落實於實際專案與運動影像分析。
                 </p>
                 <button class="profile-edit-btn" id="editProfileBtn" aria-label="編輯個人資訊">
                     <span>&#9998;</span> 編輯個人檔案 (Edit Profile)
@@ -114,45 +114,24 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-header">
-                        <span class="skill-name">Python &amp; Backend</span>
+                        <span class="skill-name">Python</span>
+                        <span class="skill-badge">Core</span>
+                    </div>
+                    <p class="skill-desc">精通 Python 核心語法、物件導向、數據處理（NumPy / Pandas）、演算法實現與高效能腳本開發。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">Machine Learning</span>
+                        <span class="skill-badge">Expertise</span>
+                    </div>
+                    <p class="skill-desc">熟悉特徵工程、分類回歸模型、Scikit-learn、模型評估調優與資料驅動決策分析。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">AI (Artificial Intelligence)</span>
                         <span class="skill-badge">Advanced</span>
                     </div>
-                    <p class="skill-desc">精通 Python 開發，熟悉 FastAPI、Flask、非同步架構與後端 API 整合設計。</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <span class="skill-name">IoT &amp; Embedded Systems</span>
-                        <span class="skill-badge">Specialty</span>
-                    </div>
-                    <p class="skill-desc">ESP32 / Arduino 硬體開發、MQTT 即時通訊協議、感測器驅動與邊緣運算整合。</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <span class="skill-name">Modern Web Development</span>
-                        <span class="skill-badge">Frontend</span>
-                    </div>
-                    <p class="skill-desc">HTML5 語意化、現代 CSS 玻璃擬態設計、原生 JavaScript ES6+、響應式排版。</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <span class="skill-name">Machine Learning &amp; AI</span>
-                        <span class="skill-badge">Applied</span>
-                    </div>
-                    <p class="skill-desc">數據預處理、特徵工程、PyTorch 模型微調與 AI Agent / LLM 應用落地。</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <span class="skill-name">Git &amp; Cloud Deployment</span>
-                        <span class="skill-badge">DevOps</span>
-                    </div>
-                    <p class="skill-desc">Git 版本控制工作流、GitHub Actions 自動化部署、GitHub Pages 雲端託管。</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <span class="skill-name">UI/UX &amp; Editorial Aesthetics</span>
-                        <span class="skill-badge">Design</span>
-                    </div>
-                    <p class="skill-desc">日系極簡雜誌排版美學、微互動動畫、色彩規範與使用者體驗旅程規劃。</p>
+                    <p class="skill-desc">專注深度學習架構、電腦視覺（Computer Vision）、運動目標軌跡追蹤與智慧影像辨識模型訓練。</p>
                 </div>
             </div>
         </section>
@@ -164,45 +143,24 @@
                 <div class="section-line"></div>
             </div>
             <div class="projects-grid">
-                <!-- Project 1 -->
+                <!-- Project: AICUP 2025 -->
                 <div class="project-card">
                     <div>
-                        <div class="project-cat">Interactive Web Application</div>
-                        <h3 class="project-title">Liquid Timepiece &amp; Editorial Studio</h3>
+                        <div class="project-cat">AI &bull; Computer Vision &bull; Sports Analytics</div>
+                        <h3 class="project-title">AICUP 2025 桌球戰術分析與軌跡追蹤</h3>
                         <p class="project-desc">
-                            融合日系極簡雜誌風排版與流態玻璃擬態（Liquid Glassmorphism）之個人首頁。具備 3D 視差光學折射、12H/24H 即時時鐘與個人資訊自訂功能。
-                        </p>
-                    </div>
-                    <div>
-                        <div class="project-tags">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3 Glassmorphism</span>
-                            <span class="tech-tag">JavaScript ES6+</span>
-                            <span class="tech-tag">GitHub Pages</span>
-                        </div>
-                        <a href="https://github.com/BlueET1/260916" target="_blank" rel="noopener noreferrer" class="project-link">
-                            View on GitHub &rarr;
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div>
-                        <div class="project-cat">Internet of Things (IoT)</div>
-                        <h3 class="project-title">Smart Environmental Telemetry Node</h3>
-                        <p class="project-desc">
-                            基於 ESP32 與 MQTT 協議之環境監測節點，即時感測溫濕度、光照與氣體濃度，並透過 WebSocket 即時串流至雲端視覺化儀表板。
+                            針對桌球比賽影像進行球體軌跡追蹤、落點精準預測與選手戰術分析。運用電腦視覺與深度學習演算法，將運動影像轉化為多維度戰術數據洞察。
                         </p>
                     </div>
                     <div>
                         <div class="project-tags">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">MQTT Protocol</span>
-                            <span class="tech-tag">IoT Architecture</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">TrackNet</span>
                         </div>
-                        <a href="https://github.com/BlueET1/260916" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <a href="https://github.com/BlueET1/aicup2025-table-tennis-analysis.git" target="_blank" rel="noopener noreferrer" class="project-link">
                             View on GitHub &rarr;
                         </a>
                     </div>

@@ -15,11 +15,11 @@
 
 | 要求項目 | 內容說明 | 狀態 |
 | :--- | :--- | :---: |
-| **👤 1. Profile** | 包含姓名（Leo Watterson）、個人 Avatar 照片、科系專長（資訊工程系 / 物聯網）與自我介紹，支援動態編輯並保存至 `localStorage` | ✅ 完成 |
-| **🛠 2. Skills** | 展示 6 項核心技術（Python, IoT/ESP32, Web Dev, Machine Learning, Git/Cloud, UI/UX） | ✅ 完成 |
-| **🚀 3. Projects** | 收錄 2 個專案作品（Liquid Timepiece, Smart IoT Telemetry Node），含技術標籤與 GitHub 連結 | ✅ 完成 |
-| **🕐 4. Live Clock** | JavaScript 動態即時時鐘，精確更新 HH:MM:SS，支援 12H/24H 切換、複製時間戳、時區偵測 | ✅ 完成 |
-| **🎨 5. Personal Design** | 日系極簡紙質雜誌排版、自訂襯線字體、3D 視差傾斜反應、多層流體光斑與雙主題模式 | ✅ 完成 |
+| **👤 1. Profile** | 姓名：Leo Watterson、個人照片（阿甘妙世界阿甘）、科系：電機工程學系、自我介紹：我是桃園人，支援動態編輯並保存至 `localStorage` | ✅ 完成 |
+| **🛠 2. Skills** | 展示 3 大核心技術：Python、Machine Learning、AI | ✅ 完成 |
+| **🚀 3. Projects** | 收錄 AICUP 2025 桌球戰術分析與軌跡追蹤專案，含技術標籤與 GitHub 連結 | ✅ 完成 |
+| **🕐 4. Live Clock** | JavaScript 動態即時時鐘，精確更新 HH:MM:SS，採用 Apple 簡潔字體，無羅馬數字，支援 12H/24H 切換與複製時間戳 | ✅ 完成 |
+| **🎨 5. Personal Design** | 日系極簡紙質雜誌排版、Liquid Glass 流態玻璃擬態、3D 視差傾斜反應、多層流體光斑與雙主題模式 | ✅ 完成 |
 
 ---
 
