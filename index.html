@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Watterson — Editorial Studio & Timepiece</title>
+    <meta name="description" content="Personal editorial showcase for Leo Watterson featuring a refined real-time timepiece.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F7F5F0;
+            --bg-secondary: #EFECE6;
+            --bg-card: rgba(255, 255, 255, 0.65);
+            --text-primary: #1A1A1A;
+            --text-secondary: #66635F;
+            --text-muted: #9E9A93;
+            --accent: #9A7B56;
+            --accent-light: #C4B299;
+            --border-color: rgba(26, 26, 26, 0.12);
+            --border-dashed: rgba(26, 26, 26, 0.2);
+            --shadow-subtle: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+            --font-serif: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #141414;
+            --bg-secondary: #1D1D1C;
+            --bg-card: rgba(29, 29, 28, 0.7);
+            --text-primary: #EDEAE5;
+            --text-secondary: #A09D96;
+            --text-muted: #6E6B65;
+            --accent: #C9A87C;
+            --accent-light: #8E7758;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-dashed: rgba(255, 255, 255, 0.18);
+            --shadow-subtle: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+            transition: background-color 0.6s ease, color 0.6s ease;
+        }
+
+        /* Paper texture & background subtle noise */
+        .paper-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0.035;
+            z-index: 100;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Editorial outer frame */
+        .editorial-frame {
+            position: fixed;
+            top: 1.5rem;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .frame-corner {
+            position: absolute;
+            font-family: var(--font-serif);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .frame-corner.top-left { top: 1rem; left: 1.25rem; }
+        .frame-corner.top-right { top: 1rem; right: 1.25rem; }
+        .frame-corner.bottom-left { bottom: 1rem; left: 1.25rem; }
+        .frame-corner.bottom-right { bottom: 1rem; right: 1.25rem; }
+
+        /* Main Container */
+        .magazine-canvas {
+            width: 100%;
+            max-width: 900px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            padding: 4rem 3.5rem;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            z-index: 20;
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Top Header Area */
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .issue-tag {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.9rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border-color: var(--text-primary);
+        }
+
+        /* Editorial Body */
+        .editorial-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .name-section {
+            text-align: center;
+            position: relative;
+        }
+
+        .subtitle-intro {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-name {
+            font-family: var(--font-serif);
+            font-size: clamp(3.2rem, 7vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-name span {
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background-color: var(--accent);
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .tagline {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        /* Liquid Glass Clock Styling */
+        .time-showcase {
+            margin-top: 1rem;
+            position: relative;
+            padding: 3rem 2rem;
+            border-radius: 28px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Liquid Glass Backing */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.18) 100%);
+            backdrop-filter: blur(24px) saturate(190%) contrast(102%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(102%);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 
+                0 30px 60px -15px rgba(154, 123, 86, 0.12),
+                0 10px 20px -5px rgba(0, 0, 0, 0.04),
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -2px 6px 0 rgba(154, 123, 86, 0.08);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        [data-theme="dark"] .time-showcase {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 0, 0, 0.6),
+                0 10px 20px -5px rgba(0, 0, 0, 0.3),
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.35),
+                inset 0 -2px 6px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .time-showcase:hover {
+            box-shadow: 
+                0 35px 70px -15px rgba(154, 123, 86, 0.18),
+                0 15px 30px -5px rgba(0, 0, 0, 0.06),
+                inset 0 2px 3px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        [data-theme="dark"] .time-showcase:hover {
+            box-shadow: 
+                0 35px 70px -15px rgba(201, 168, 124, 0.15),
+                0 15px 30px -5px rgba(0, 0, 0, 0.5),
+                inset 0 2px 3px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* Liquid Fluid Animated Blobs behind glass */
+        .liquid-blob-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .liquid-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.65;
+            transition: all 0.8s ease;
+        }
+
+        .liquid-blob-1 {
+            width: 220px;
+            height: 220px;
+            top: -30px;
+            left: -20px;
+            background: radial-gradient(circle, rgba(224, 195, 160, 0.75) 0%, rgba(245, 230, 211, 0) 70%);
+            animation: liquidFlow1 12s infinite alternate ease-in-out;
+        }
+
+        .liquid-blob-2 {
+            width: 260px;
+            height: 260px;
+            bottom: -50px;
+            right: -30px;
+            background: radial-gradient(circle, rgba(196, 178, 153, 0.65) 0%, rgba(230, 215, 195, 0) 70%);
+            animation: liquidFlow2 14s infinite alternate ease-in-out;
+        }
+
+        .liquid-blob-3 {
+            width: 180px;
+            height: 180px;
+            top: 30%;
+            left: 45%;
+            background: radial-gradient(circle, rgba(235, 210, 180, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: liquidFlow3 10s infinite alternate ease-in-out;
+        }
+
+        [data-theme="dark"] .liquid-blob-1 {
+            background: radial-gradient(circle, rgba(201, 168, 124, 0.35) 0%, rgba(201, 168, 124, 0) 70%);
+        }
+        [data-theme="dark"] .liquid-blob-2 {
+            background: radial-gradient(circle, rgba(142, 119, 88, 0.3) 0%, rgba(142, 119, 88, 0) 70%);
+        }
+        [data-theme="dark"] .liquid-blob-3 {
+            background: radial-gradient(circle, rgba(240, 200, 150, 0.2) 0%, rgba(240, 200, 150, 0) 70%);
+        }
+
+        @keyframes liquidFlow1 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(60px, 30px) scale(1.15) rotate(90deg); }
+            100% { transform: translate(30px, 50px) scale(0.9) rotate(180deg); }
+        }
+
+        @keyframes liquidFlow2 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(-50px, -30px) scale(1.2) rotate(-90deg); }
+            100% { transform: translate(-30px, -20px) scale(0.85) rotate(-180deg); }
+        }
+
+        @keyframes liquidFlow3 {
+            0% { transform: translate(-50%, -50%) scale(0.9); }
+            100% { transform: translate(-30%, -40%) scale(1.3); }
+        }
+
+        /* Liquid Light Sheen Glare across Glass */
+        .glass-sheen {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0) 20%, 
+                rgba(255, 255, 255, 0.35) 50%, 
+                rgba(255, 255, 255, 0) 80%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: glassShimmer 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        @keyframes glassShimmer {
+            0%, 60% { left: -150%; }
+            100% { left: 200%; }
+        }
+
+        .time-label {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .time-label::before, .time-label::after {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .digital-clock {
+            font-family: var(--font-serif);
+            font-size: clamp(3.8rem, 10vw, 6.8rem);
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .time-digits {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+            min-width: 1.25ch;
+            background: linear-gradient(180deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+        }
+
+        .time-separator {
+            opacity: 0.45;
+            animation: colonBlink 1.5s infinite ease-in-out;
+            margin: 0 0.12em;
+            color: var(--accent);
+            font-weight: 200;
+            transform: translateY(-4px);
+        }
+
+        @keyframes colonBlink {
+            0%, 100% { opacity: 0.7; transform: translateY(-4px) scale(1); }
+            50% { opacity: 0.15; transform: translateY(-4px) scale(0.9); }
+        }
+
+        .liquid-capsule-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-left: 0.8rem;
+            align-self: center;
+        }
+
+        .liquid-capsule {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .liquid-capsule {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .seconds-pill {
+            font-variant-numeric: tabular-nums;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Calendar & Location Row */
+        .metadata-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .meta-card {
+            padding: 1rem;
+            border: 1px dashed var(--border-dashed);
+            transition: var(--transition);
+        }
+
+        .meta-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .meta-title {
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer Quote */
+        .footer-note {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            margin-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .greeting-message {
+            font-style: italic;
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 650px) {
+            .magazine-canvas {
+                padding: 2.5rem 1.5rem;
+            }
+            .header-bar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+            .editorial-frame {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper-overlay"></div>
+
+    <!-- Outer Decorative Editorial Frame -->
+    <div class="editorial-frame">
+        <div class="frame-corner top-left">Vol. I / No. 26</div>
+        <div class="frame-corner top-right">Editorial &bull; Archive</div>
+        <div class="frame-corner bottom-left">35&deg;41'N 139&deg;41'E</div>
+        <div class="frame-corner bottom-right">Est. 2026</div>
+    </div>
+
+    <!-- Main Magazine Canvas -->
+    <main class="magazine-canvas">
+        <header class="header-bar">
+            <div class="issue-tag">Portfolio &bull; Chronicle</div>
+            <div class="status-pill">
+                <div class="pulse-dot"></div>
+                <span id="liveStatus">Live Chronometer</span>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="切換深淺模式">Theme : Mode</button>
+        </header>
+
+        <section class="editorial-content">
+            <div class="name-section">
+                <p class="subtitle-intro">Curated Presence</p>
+                <h1 class="hero-name">Leo <span>Watterson</span></h1>
+                <div class="divider-line"></div>
+                <p class="tagline">Designer &bull; Creator &bull; Thinker</p>
+            </div>
+
+            <!-- Liquid Glass Timepiece Showcase -->
+            <div class="time-showcase" id="liquidTimepiece">
+                <div class="liquid-blob-container">
+                    <div class="liquid-blob liquid-blob-1"></div>
+                    <div class="liquid-blob liquid-blob-2"></div>
+                    <div class="liquid-blob liquid-blob-3"></div>
+                </div>
+                <div class="glass-sheen"></div>
+
+                <div class="time-label">Liquid Chronometer &bull; 精確計時</div>
+                
+                <div class="digital-clock" id="clockDisplay" aria-live="polite">
+                    <span class="time-digits" id="hours">00</span>
+                    <span class="time-separator">:</span>
+                    <span class="time-digits" id="minutes">00</span>
+                    <div class="liquid-capsule-group">
+                        <div class="liquid-capsule">
+                            <span class="seconds-pill" id="seconds">00</span>
+                            <span style="font-size: 0.6rem; margin-left: 2px; opacity: 0.7;">s</span>
+                        </div>
+                        <div class="liquid-capsule" id="period">AM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metadata-row">
+                <div class="meta-card">
+                    <div class="meta-title">Calendar Date / 日期</div>
+                    <div class="meta-value" id="fullDateDisplay">Loading Date...</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-title">Day of Week / 星期</div>
+                    <div class="meta-value" id="weekdayDisplay">Loading...</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-title">Timezone / 時區</div>
+                    <div class="meta-value" id="timezoneDisplay">UTC+8</div>
+                </div>
+            </div>
+
+            <footer class="footer-note">
+                <span class="greeting-message" id="greetingMessage">Good Day, Leo.</span>
+                <span>All rights reserved &copy; 2026</span>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        // Clock Update Engine
+        function updateTime() {
+            const now = new Date();
+
+            let rawHours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const period = rawHours >= 12 ? 'PM' : 'AM';
+            const displayHours = String(rawHours % 12 || 12).padStart(2, '0');
+
+            document.getElementById('hours').textContent = displayHours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            document.getElementById('period').textContent = period;
+
+            // Date formatting
+            const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('fullDateDisplay').textContent = now.toLocaleDateString('en-US', optionsDate);
+
+            // Weekday formatting
+            const optionsWeekday = { weekday: 'long' };
+            const weekdayEn = now.toLocaleDateString('en-US', optionsWeekday);
+            document.getElementById('weekdayDisplay').textContent = weekdayEn;
+
+            // Timezone
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.getElementById('timezoneDisplay').textContent = tz || 'Local Time';
+            } catch(e) {
+                document.getElementById('timezoneDisplay').textContent = 'Local Time';
+            }
+
+            // Dynamic Editorial Greeting
+            const greetingEl = document.getElementById('greetingMessage');
+            if (rawHours >= 5 && rawHours < 12) {
+                greetingEl.textContent = '“A tranquil morning with endless possibilities.”';
+            } else if (rawHours >= 12 && rawHours < 18) {
+                greetingEl.textContent = '“Focus and elegance through the afternoon.”';
+            } else if (rawHours >= 18 && rawHours < 22) {
+                greetingEl.textContent = '“Embrace the quiet beauty of twilight.”';
+            } else {
+                greetingEl.textContent = '“Midnight clarity in silent contemplation.”';
+            }
+        }
+
+        // Initialize and tick
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeToggle');
+        let isDark = false;
+
+        themeBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.textContent = 'Theme : Paper';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.textContent = 'Theme : Dark';
+            }
+        });
+
+        // Interactive Liquid Glass 3D Refraction on Mouse Hover
+        const liquidPanel = document.getElementById('liquidTimepiece');
+        if (liquidPanel) {
+            liquidPanel.addEventListener('mousemove', (e) => {
+                const rect = liquidPanel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -6;
+                const rotateY = ((x - centerX) / centerX) * 6;
+
+                liquidPanel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+            });
+
+            liquidPanel.addEventListener('mouseleave', () => {
+                liquidPanel.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            });
+        }
+    </script>
+</body>
+</html>
