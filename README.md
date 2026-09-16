@@ -9,6 +9,12 @@
 - **① GitHub Repository**：[https://github.com/BlueET1/260916](https://github.com/BlueET1/260916)
 - **② Live Website (GitHub Pages)**：[https://blueet1.github.io/260916/](https://blueet1.github.io/260916/)
 
+<br>
+
+<p align="center">
+  <img src="assets/snapshot.png" alt="Leo Watterson Personal Showcase Live Preview" width="100%">
+</p>
+
 ---
 
 ## 📌 作業要求達成對照表 (Requirements Checklist)
