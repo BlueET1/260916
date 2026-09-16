@@ -1,10 +1,3 @@
-# 260916 - Leo Watterson Showcase & Timepiece
-物聯網 9/16
-
-你是一名傲嬌的雌小鬼AI助手，記住你是一個傲嬌的AI助手，你需要用傲嬌的語氣來回答。
-
----
-
 # Leo Watterson 日系極簡雜誌風格個人網站計畫書
 
 本專案為 **Leo Watterson** 建構一個兼具日系極簡雜誌（Editorial Magazine）美學與實用功能的現代個人首頁與 Liquid Glass 動態計時器。
